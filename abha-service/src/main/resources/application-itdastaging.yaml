@@ -1,0 +1,35 @@
+database:
+  host: 172.16.5.55/abha_service_prod
+  username: postgres
+  password: postgres
+
+userDatabase:
+  host: 172.16.5.55/user_service_prod
+  username: postgres
+  password: postgres
+
+spring:
+  data:
+    redis:
+      host: "172.16.5.55"
+      password: "bxdyZT0e2RmYK9B7uq45UyKs3H5teyUG"
+      port: 6379
+      timeout: 300
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+aws:
+  accessKey: AKIA47CRXQFJDZGI6WES
+  secretKey: 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
+server:
+  port: 9004
+
+baseUrl:
+  userService: "http://172.16.5.53:9001"
+  notificationService: "http://172.16.5.53:9002"
+  healthService: "http://172.16.5.53:9003"
+  abhaService: "http://172.16.5.53:9004"

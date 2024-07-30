@@ -1,0 +1,20 @@
+Spring:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+
+logging:
+  level:
+    root: INFO
+    org.wishfoundation: DEBUG
+
+
+basicAuth:
+  organizations:
+    evaidya:
+      username: evaidya
+      password: jNK26MosIF2A8yo
+    wish:
+      username: wish
+      password: 8kR1T0mAnHvFPsP

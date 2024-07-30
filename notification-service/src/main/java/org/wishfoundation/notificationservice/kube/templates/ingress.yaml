@@ -1,0 +1,41 @@
+---
+metadata:
+  name: ingress
+  annotations:
+    nginx.ingress.kubernetes.io/cors-allow-origin: '*'
+    nginx.ingress.kubernetes.io/proxy-read-timeout: '150'
+    nginx.ingress.kubernetes.io/proxy-send-timeout: '150'
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: '150'
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: 500m
+    nginx.ingress.kubernetes.io/cors-allow-methods: PUT, GET, POST, OPTIONS, PATCH, DELETE
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/server-snippet: |
+      location @custom_504 {
+         default_type application/json;
+        more_set_headers "x-amzn-requestid: $request_id";
+        more_set_headers "access-control-allow-origin: *";
+        return 201 '{"jobId": "$request_id"}';
+      }
+      error_page 504 = @custom_504;
+    nginx.ingress.kubernetes.io/cors-allow-headers: x-amzn-requestid,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Authorization,origin,websiteOrigin
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+spec:
+  rules:
+    - host: {{$.Values.publicDomain}}
+      http:
+        paths:
+          {{- range $k,$v := $.Values.apps}}
+            {{- range $path := $v.apiPath}}
+            - path: "{{$path}}(/|$)(.*)"
+              backend:
+                service:
+                  port:
+                    number:  {{$.Values.service.port}}
+                  name: {{$k}}
+              pathType: ImplementationSpecific    
+            {{- end }}
+            {{- end }}

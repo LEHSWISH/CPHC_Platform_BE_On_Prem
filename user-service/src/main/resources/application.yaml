@@ -1,0 +1,34 @@
+spring:
+  profiles:
+    active: "dev"
+  messages:
+    basename: ValidationMessages
+  exclude:
+    - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+    - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+    - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+    
+server:
+  port: 80
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        web: DEBUG
+
+
+aws:
+  accessKey: AKIA47CRXQFJDZGI6WES
+  secretKey: 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
+
+
+basicAuth:
+  organizations:
+    evaidya:
+      username: evaidya
+      password: jNK26MosIF2A8yo
+    wish:
+      username: wish
+      password: 8kR1T0mAnHvFPsP

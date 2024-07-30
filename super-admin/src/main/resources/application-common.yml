@@ -1,0 +1,11 @@
+Spring:
+    exclude:
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+      - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+      - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+
+logging:
+  level:
+    root: INFO
+    org.wishfoundation: DEBUG
+

@@ -1,0 +1,38 @@
+server:
+  port: 80
+
+spring:
+  messages:
+    basename: ValidationMessages
+  mail:
+    host: smtp.office365.com
+    username: noreply@wishfoundationindia.org
+    password: wish@1234
+    port: 587
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+          auth: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+stmp:
+  username: ukdghl
+  password: 7f5b6jc60syn5lnem
+  senderId: UKITDA
+  entityId: 1301159349918843780
+
+basicAuth:
+  organizations:
+    evaidya:
+      username: evaidya
+      password: jNK26MosIF2A8yo
+    wish:
+      username: wish
+      password: 8kR1T0mAnHvFPsP

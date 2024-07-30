@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.wishfoundation</groupId>
+        <artifactId>chaardham-backend</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>abha-service</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>abha-service</name>
+    <description>abha-service</description>
+
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+
+    <dependencies>
+
+
+        <dependency>
+            <groupId>org.redisson</groupId>
+            <artifactId>redisson-spring-boot-starter</artifactId>
+            <version>3.25.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.wishfoundation</groupId>
+            <artifactId>chardham-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-structures-r4</artifactId>
+            <version>6.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-validation</artifactId>
+            <version>6.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>ca.uhn.hapi.fhir</groupId>
+            <artifactId>hapi-fhir-validation-resources-r4</artifactId>
+            <version>6.10.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bouncycastle</groupId>
+            <artifactId>bcprov-jdk18on</artifactId>
+            <version>1.77</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10.1</version>
+        </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>s3</artifactId>
+            <version>2.22.10</version>
+        </dependency>
+
+
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

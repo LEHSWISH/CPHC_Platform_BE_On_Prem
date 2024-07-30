@@ -1,0 +1,37 @@
+database:
+  host: 13.201.203.168/abha_service_dev
+  username: postgres
+  password: Wish1234@
+  awsRegion: ap-south-1
+
+userDatabase:
+  host: 13.201.203.168/user_service_dev
+  username: postgres
+  password: Wish1234@
+  awsRegion: ap-south-1
+
+spring:
+  data:
+    redis:
+      host: "13.201.203.168"
+      password: "Wish1234@"
+      port: 6379
+      timeout: 300
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+aws:
+  accessKey: AKIA47CRXQFJDZGI6WES
+  secretKey: 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
+server:
+  port: 8083
+
+baseUrl:
+  userService: "http://localhost:8080"
+  notificationService: "http://localhost:8081"
+  healthService: "http://localhost:8082"
+  abhaService: "http://localhost:8083"

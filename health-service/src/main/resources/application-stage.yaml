@@ -1,0 +1,22 @@
+database:
+  host: postgres.yatripulse.internal/health_service_stage
+  username: postgres
+  password: 8t=J76x@*A
+  awsRegion: ap-south-1
+userDatabase:
+  host: postgres.yatripulse.internal/user_service_stage
+  username: postgres
+  password: 8t=J76x@*A
+  awsRegion: ap-south-1
+spring:
+  data:
+    redis:
+      host: prodredis.yatripulse.internal
+      port: 6379
+
+aws:
+  accessKey: AKIA47CRYRRYFV47GJPD
+  secretKey: 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
+
+server:
+  port: 80

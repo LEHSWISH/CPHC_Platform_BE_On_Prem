@@ -1,0 +1,40 @@
+database:
+  host: 13.201.203.168/user_service_dev
+  username: postgres
+  password: Wish1234@
+  awsRegion: ap-south-1
+
+spring:
+  data:
+    redis:
+      host: "13.201.203.168"
+      password: "Wish1234@"
+      port: 6379
+      timeout: 300
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        
+aws:
+  accessKey: AKIA47CRXQFJDZGI6WES
+  secretKey: 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
+server:
+  port: 8080
+
+
+baseUrl:
+  userService: "http://localhost:8080"
+  notificationService: "http://localhost:8081"
+  healthService: "http://localhost:8082"
+  abhaService: "http://localhost:8083"
+
+abhaAPILoginCreds:
+  accessKey: "SBX_004686"
+  secretKey: "c6c6bd82-dfdc-4a3b-b8f2-7eae71b4a055"
+  grantType: "client_credentials"
+  hostname: "https://abhasbx.abdm.gov.in/abha/api"
+  gatewaySessionHostname: "https://dev.abdm.gov.in"
+  abhaV2Hostname: "https://healthidsbx.abdm.gov.in"

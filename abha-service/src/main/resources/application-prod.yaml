@@ -1,0 +1,23 @@
+spring:
+  data:
+    redis:
+      host: prodredis.yatripulse.internal
+      port: 6379
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+database:
+  host: 65.1.166.251/user_service_prod
+  username: postgres
+  password: postgres
+  awsRegion: ap-south-1
+        
+aws:
+  accessKey: AKIA47CRYRRYFV47GJPD
+  secretKey: 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
+
+server:
+  port: 80
+

@@ -1,0 +1,26 @@
+{{- range $app_key,$app_value := .Values.apps}}
+apiVersion: autoscaling/v2beta2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: "{{$app_key}}"
+spec:
+  maxReplicas: {{$app_value.maxPodCount}}
+  minReplicas: {{$app_value.minPodCount}}
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: "{{ $app_key}}"
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 80
+    - type: Resource
+      resource:
+        name: memory
+        target:
+          type: Utilization
+          averageUtilization: 80
+  {{- end}}

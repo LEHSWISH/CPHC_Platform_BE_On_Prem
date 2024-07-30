@@ -1,0 +1,19 @@
+spring:
+  profiles:
+    active: "dev"
+  messages:
+    basename: ValidationMessages
+  exclude:
+    - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+    - org.springframework.boot.autoconfigure.jdbc.DataSourceTransactionManagerAutoConfiguration
+    - org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration
+    
+server:
+  port: 80
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        web: DEBUG

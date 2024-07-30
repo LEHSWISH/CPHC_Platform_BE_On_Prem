@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.wishfoundation</groupId>
+    <artifactId>chaardham-backend</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>chaardham-backend</name>
+
+    <properties>
+        <chaardham-backend.version>${project.version}</chaardham-backend.version>
+        <java.version>17</java.version>
+        <maven.build.timestamp.format>yyyyMMdd-HHmm</maven.build.timestamp.format>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <encoding>UTF-8</encoding>
+        <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+        <project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
+        <archetype.encoding>${encoding}</archetype.encoding>
+        <spring-cloud.version>2023.0.0</spring-cloud.version>
+        <spring-boot.version>3.2.1</spring-boot.version>
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <url>891377192048.dkr.ecr.ap-south-1.amazonaws.com/wishfoundation</url>
+        <region>ap-south-1</region>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <delimiters>
+                        <delimiter>@</delimiter>
+                    </delimiters>
+                    <useDefaultDelimiters>false</useDefaultDelimiters>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                    <configuration>
+                        <classifier>boot</classifier>
+                        <!-- <outputDirectory>../target</outputDirectory> -->
+                        <excludeDevtools>true</excludeDevtools>
+                        <addResources>true</addResources>
+                        <executable>true</executable>
+                        <layout>ZIP</layout>
+                        <!--suppress UnresolvedMavenProperty -->
+                        <mainClass>${mainClass}</mainClass>
+                    </configuration>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>repackage</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>3.12.1</version>
+                    <configuration>
+                        <release>${java.version}</release>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>com.google.cloud.tools</groupId>
+                    <artifactId>jib-maven-plugin</artifactId>
+                    <version>3.4.0</version>
+                    <executions>
+                        <execution>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>build</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <from>
+                            <image>amazoncorretto:17-alpine3.19</image>
+                        </from>
+                        <to>
+                            <image>${url}/${project.artifactId}:${timestamp}</image>
+                            <tags>
+                                <tag>${timestamp}</tag>
+                            </tags>
+                            <credHelper>ecr-login</credHelper>
+                        </to>
+
+                        <container>
+                            <jvmFlags>
+                                <jvmFlag>-Xms2000m</jvmFlag>
+                                <jvmFlag>-XX:+UseG1GC</jvmFlag>
+                                <jvmFlag>-XX:ParallelGCThreads=8</jvmFlag>
+                                <jvmFlag>-XX:ConcGCThreads=2</jvmFlag>
+                                <jvmFlag>-XX:+UseStringDeduplication</jvmFlag>
+                                <jvmFlag>-XX:OnOutOfMemoryError="poweroff"</jvmFlag>
+                            </jvmFlags>
+                            <!--suppress UnresolvedMavenProperty -->
+                            <mainClass>${mainClass}</mainClass>
+                            <ports>
+                                <port>80</port>
+                            </ports>
+                        </container>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <modules>
+        <module>user-service</module>
+        <module>notification-service</module>
+        <module>chardham-core</module>
+        <module>health-service</module>
+        <module>abha-service</module>
+        <module>super-admin</module>
+        <module>iomt-device-inventory</module>
+    </modules>
+</project>

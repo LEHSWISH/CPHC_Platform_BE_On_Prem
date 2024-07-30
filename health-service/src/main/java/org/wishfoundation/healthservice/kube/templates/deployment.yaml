@@ -1,0 +1,41 @@
+{{- range $app_key,$app_value := .Values.apps}}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: "{{ $app_key}}"
+  labels:
+    app.kubernetes.io/name: {{$app_key}}
+    release: {{$.Release.Name}}
+spec:
+  replicas: {{$app_value.replicaCount}}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{$app_key}}
+      release: {{$.Release.Name}}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{$app_key}}
+        release: {{$.Release.Name}}
+    spec:
+      containers:
+        - name: "{{ $app_key}}"
+          image: "{{$.Values.image.url}}/{{$app_value.image}}:{{$.Values.image.version}}"
+          args: [ "--spring.profiles.active=kubernetes,common,{{$.Values.deploymentProfiles}}"]
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: {{$app_value.cpuLimit}}
+              memory: {{$app_value.podMaxRam}}
+            requests:
+              cpu: {{$app_value.cpuRequest}}
+              memory: {{$app_value.podMinRam}}
+          env:
+          {{- range $k,$v := $.Values.extraEnv}}
+            - name: "{{$k}}"
+              value: "{{$v}}"
+          {{- end}}
+          ports:
+            - containerPort: {{$.Values.service.port}}
+{{- end}}

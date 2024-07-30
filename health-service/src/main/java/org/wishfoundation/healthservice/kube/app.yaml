@@ -1,0 +1,12 @@
+apps:
+  health-service:
+    image: health-service
+    replicaCount: '1'
+    minPodCount : '1'
+    maxPodCount : '1'
+    podMinRam : 2000Mi
+    cpuRequest : '.2'
+    podMaxRam: 3000Mi
+    cpuLimit: '1'
+    apiPath:
+      - /health-service

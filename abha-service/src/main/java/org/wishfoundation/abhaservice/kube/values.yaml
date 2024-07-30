@@ -1,0 +1,16 @@
+service:
+  #type: ClusterIP
+  port: 80
+
+deploymentProfiles: deploy
+
+publicDomain: api-stage.yatripulse.in
+
+
+extraEnv:
+  YATRI_SERVICE_HOST : "http://api-stage.yatripulse.in/user-service"
+  CONFIG_BUCKET_PATH : "wishfoundation.config.prod.%s"
+  SMS_BASE_HOST: "http://api-stage.yatripulse.in/notification-service"
+  HEALTH_BASE_HOST: "http://api-stage.yatripulse.in/health-service"
+  YATRI_PULE_LINK: "https://web-yatripulse.centilytics.com/login"
+  NOTIFICATION_SERVICE_HOST: "http://yatripulse-dev.centilytics.com/notification-service"

@@ -1,0 +1,5 @@
+package org.wishfoundation.abhaservice.enums;
+
+public enum FieldType {
+    VOTER_ID_CARD, PASSPORT, PAN_CARD, AADHAR_CARD, DRIVING_LICENSE,OTP,MOBILE,ABHA_NUMBER,ABHA_ADDRESS,TXT_ID,CONSENT,OTP_RATE_LIMIT;
+}

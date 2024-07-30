@@ -1,0 +1,32 @@
+spring:
+  data:
+    redis:
+      host: "4.213.6.195"
+      password: "wish@123"
+      port: 6379
+      timeout: 300
+
+userDatabase:
+  host: 4.213.6.195/itdadevdb
+  username: itdadev
+  password: wish@123
+  awsRegion: ap-south-1
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+aws:
+  accessKey: AKIA47CRXQFJDZGI6WES
+  secretKey: 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
+
+server:
+  port: 8081
+
+baseUrl:
+  userService: "http://localhost:8080"
+  notificationService: "http://localhost:8081"
+  healthService: "http://localhost:8082"
+  abhaService: "http://localhost:8083"

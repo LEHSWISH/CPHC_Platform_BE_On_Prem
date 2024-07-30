@@ -1,0 +1,14 @@
+service:
+  #type: ClusterIP
+  port: 80
+
+deploymentProfiles: dev
+
+publicDomain: yatripulse-dev.centilytics.com
+
+extraEnv:
+  YATRI_SERVICE_HOST : "http://yatripulse-dev.centilytics.com/user-service"
+  CONFIG_BUCKET_PATH : "wishfoundation.config.dev.%s"
+  SMS_BASE_HOST: "http://yatripulse-dev.centilytics.com/notification-service"
+  HEALTH_BASE_HOST: "http://yatripulse-dev.centilytics.com/health-service"
+  YATRI_PULE_LINK: "https://web-yatripulse.centilytics.com/login"

@@ -1,0 +1,12 @@
+apps:
+  notification-service:
+    image: notification-service
+    replicaCount: '1'
+    minPodCount : '1'
+    maxPodCount : '1'
+    podMinRam : 500Mi
+    cpuRequest : '.2'
+    podMaxRam: 1000Mi
+    cpuLimit: '1'
+    apiPath:
+      - /notification-service
