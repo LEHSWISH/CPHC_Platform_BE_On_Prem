@@ -1,0 +1,106 @@
+Installation Guide 
+ 
+
+Setup Steps 
+
+Spring CLI: v3.2.4 
+
+1. Clone the Repository 
+
+    Open a terminal window. 
+
+    Navigate to the directory where you want to clone the project. 
+
+    Clone the repository from GitHub using the following command: 
+
+ 
+
+# Enter in terminal 
+git clone -b <branch-name> <repository-url>   
+
+git clone -b dham_v.0 https://github.com/LEHSWISH/CPHC_Platform_BE_On_Prem.git 
+
+
+    Replace <branch-name> with the name of the branch you want to clone. 
+
+    Replace <repository-url> with the URL of the GitHub repository. 
+     
+
+ 
+ 
+
+ 
+
+ 
+
+2. Project Structure 
+ 
+Structure: 
+
+    abha-service: Handles all ABHA-related functionalities, including ABHA creation and linking. 
+
+    health-service: Manages health and vitals information. 
+
+    notification-service: Manages all SMS notifications. 
+
+    user-service: Performs CRUD operations, manages user details and passwords, includes ABHA M1 functionality, and integrates tourism APIs. 
+
+    pom.xml: This is the central pom.xml file that contains all dependencies for the various services. It serves as a common configuration file for all services. 
+
+ 
+ 
+
+3. Steps to Run a Maven-Based Application 
+
+# Navigate to the Project Root: 
+
+    Open your terminal or command prompt. 
+
+    Change directory to the project's root where the common pom.xml file is located and install the dependencies by running: 
+
+ 
+
+                # Enter in terminal 
+
+                mvn clean install -Djib.skip=true 
+
+ 
+
+# Navigate to the Specific Microservice Directory: 
+
+If each microservice is in a separate directory, navigate to the directory of the microservice you want to run (navigate to its pom.xml file) 
+
+ 
+
+# Enter in terminal 
+
+mvn spring-boot:run -Dspring-boot.run.profiles=dev,common 
+
+ 
+
+ 
+
+ 
+ 
+
+ 
+
+   
+
+ 
+
+ 
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 

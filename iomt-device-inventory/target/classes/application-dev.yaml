@@ -1,0 +1,22 @@
+#database:
+#  host: 65.1.166.251/user_service_dev
+#  username: postgres
+#  password: wish@dev
+#  awsRegion: ap-south-1
+#
+#spring:
+#  data:
+#    redis:
+#      host: "35.240.168.13"
+#      password: "fPz6RMnCAgWg"
+#      port: 6379
+#      timeout: 300
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+server:
+  port: 80

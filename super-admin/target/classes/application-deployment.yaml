@@ -1,0 +1,25 @@
+spring:
+  data:
+    redis:
+      host: redis.yatridev.internal
+      port: 6379
+
+database:
+  host: postgres.yatridev.internal/user_service_deployment
+  username: postgres
+  password: postgres
+  awsRegion: ap-south-1
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+        
+aws:
+  accessKey: AKIA47CRXQFJDZGI6WES
+  secretKey: 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
+
+server:
+  port: 80
+
