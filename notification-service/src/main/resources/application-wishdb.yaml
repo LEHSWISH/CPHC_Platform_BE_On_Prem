@@ -1,0 +1,46 @@
+spring:
+  data:
+    redis:
+     
+
+      host: "192.168.1.161"
+      password: "cxdyZT0e2RmYK9B7uq45UyKs3H5teyUH"
+      port: 6379
+      timeout: 300
+
+userDatabase:
+  # host: 172.16.5.55/user_service_prod
+  host: 192.168.1.161/postgres
+  username: postgres
+  password: postgres
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+aws:
+  accessKey: AKIA47CRXQFJDZGI6WES
+  secretKey: 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
+
+server:
+  port: 9002
+
+baseUrl:
+  # userService: "http://172.16.5.53:9001"
+  # notificationService: "http://172.16.5.53:9002"
+  # healthService: "http://172.16.5.53:9003"
+  # abhaService: "http://172.16.5.53:9004"
+
+  userService: "http://127.0.0.1:9001"
+  notificationService: "http://127.0.0.1:9002"
+  healthService: "http://127.0.0.1:9003"
+  abhaService: "http://127.0.0.1:9004"
+
+
+stmp:
+    username: ukdghl
+    password: 7f5b6jc60syn5lnem
+    senderId: UKITDA
+    entityId: 1301159349918843780

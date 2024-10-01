@@ -1,0 +1,43 @@
+database:
+  
+  host: 192.168.1.161/postgres
+  username: postgres
+  password: postgres
+
+spring:
+  data:
+   
+
+     redis:
+      host: "192.168.1.161"
+      password: "cxdyZT0e2RmYK9B7uq45UyKs3H5teyUH"
+      port: 6379
+      timeout: 300
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+aws:
+  accessKey: AKIA47CRXQFJDZGI6WES
+  secretKey: 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
+server:
+  port: 9001
+
+
+baseUrl:
+
+  userService: "http://127.0.0.1:9001"
+  notificationService: "http://127.0.0.1:9002"
+  healthService: "http://127.0.0.1:9003"
+  abhaService: "http://127.0.0.1:9004"
+
+abhaAPILoginCreds:
+  accessKey: "HDGU_001"
+  secretKey: "a273ad9e-818e-4235-ba9e-b365ec4852ae"
+  grantType: "client_credentials"
+  hostname: "https://abha.abdm.gov.in/api/abha"
+  gatewaySessionHostname: "https://live.abdm.gov.in"
+  abhaV2Hostname: "https://healthid.abdm.gov.in"

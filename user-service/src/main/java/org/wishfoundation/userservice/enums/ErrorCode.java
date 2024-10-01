@@ -67,6 +67,9 @@ public enum ErrorCode {
 	INVALID_MOBILE_OTP("USR52","Incorrect OTP, please try again"),
 	ABHA_LINKED_WITH_ANOTHER_REGISTERED_USER("USR53","ABHA is already linked with another registered user."),
 	INVALID_TOKEN("USR54","Invalid token.");
+
+	
+
 	private final String code, message;
 
 	ErrorCode(String code, String message) {

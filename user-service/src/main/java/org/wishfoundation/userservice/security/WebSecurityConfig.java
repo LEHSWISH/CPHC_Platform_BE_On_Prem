@@ -52,7 +52,9 @@ public class WebSecurityConfig implements WebMvcConfigurer {
 
     @Bean
     public PasswordEncoder userPasswordEncoder() {
-        return new BCryptPasswordEncoder(4);
+        return new BCryptPasswordEncoder(10);
+       
+
     }
 
 

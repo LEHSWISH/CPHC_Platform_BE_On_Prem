@@ -64,11 +64,15 @@ public class CharDhamCoreDbConfig {
         hikariDataSource.setDriverClassName(applicationProperties.getUserDatabase().getDriverClassName());
         hikariDataSource.setPoolName(POOL_NAME);
 
-        hikariDataSource.setMaximumPoolSize(100);
+        hikariDataSource.setMaximumPoolSize(200);
         hikariDataSource.setMinimumIdle(10);
         hikariDataSource.setConnectionTimeout(120000);
         hikariDataSource.setIdleTimeout(180000);
         hikariDataSource.setMaxLifetime(300000);
+
+        hikariDataSource.setLeakDetectionThreshold(2000); // 2 seconds to detect connection leaks
+
+
         return hikariDataSource;
     }
 
@@ -127,7 +131,9 @@ public class CharDhamCoreDbConfig {
         Properties properties = new Properties();
 
         properties.put(org.hibernate.cfg.Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
-        properties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "none");
+        // properties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "none");
+        // properties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "create");
+        properties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, "update");
         properties.put(org.hibernate.cfg.Environment.SHOW_SQL, true);
         properties.put(org.hibernate.cfg.Environment.DEFAULT_SCHEMA, "public");
         properties.put(org.hibernate.cfg.Environment.JDBC_TIME_ZONE, "UTC");

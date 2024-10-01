@@ -74,7 +74,7 @@ If each microservice is in a separate directory, navigate to the directory of th
 
 # Enter in terminal 
 
-mvn spring-boot:run -Dspring-boot.run.profiles=dev,common 
+mvn spring-boot:run -Dspring-boot.run.profiles=wishdb,common 
 
  
 

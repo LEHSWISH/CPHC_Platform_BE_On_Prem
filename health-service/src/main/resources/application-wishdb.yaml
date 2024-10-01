@@ -1,0 +1,46 @@
+#database:
+#  globalDataSource:
+#    host: ap-south-1-tenants-1.cbxgfplzpwhh.ap-south-1.rds.amazonaws.com/char_dham
+#    username: postgres
+#    password: W7K0TdPuOXuTTuzmSzGJ
+#    awsRegion: ap-southeast-1
+#
+aws:
+  accessKey: AKIA47CRXQFJDZGI6WES
+  secretKey: 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
+
+userDatabase:
+  # host: 172.16.5.55/user_service_prod
+  host: 192.168.1.161/postgres
+  username: postgres
+  password: postgres
+
+database:
+  
+  host: 192.168.1.161/postgres
+  username: postgres
+  password: postgres
+
+spring:
+  data:
+    redis:
+     
+      host: "192.168.1.161"
+      password: "cxdyZT0e2RmYK9B7uq45UyKs3H5teyUH"
+      port: 6379
+      timeout: 300
+
+
+server:
+  port: 9003
+
+baseUrl:
+  # userService: "http://172.16.5.53:9001"
+  # notificationService: "http://172.16.5.53:9002"
+  # healthService: "http://172.16.5.53:9003"
+  # abhaService: "http://172.16.5.53:9004"
+
+  userService: "http://127.0.0.1:9001"
+  notificationService: "http://127.0.0.1:9002"
+  healthService: "http://127.0.0.1:9003"
+  abhaService: "http://127.0.0.1:9004"

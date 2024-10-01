@@ -84,7 +84,13 @@ public class YatriPulseUserLoginSignUpServiceImpl implements YatriPulseUserLogin
     @Autowired
     private AsyncConfig asyncConfig;
 
-    /**
+
+
+
+
+    /**.............Login......................
+     * 
+     * 
      * This method handles the login process for YatriPulseUsers.
      * It validates the user's credentials, generates a JWT token, and returns the token along with the user's details.
      *
@@ -96,6 +102,7 @@ public class YatriPulseUserLoginSignUpServiceImpl implements YatriPulseUserLogin
     public ResponseEntity<LoginResponse> login(YatriPulseUserRequest yatriPulseUserRequest) {
         LoginResponse model = new LoginResponse();
         try {
+            
             // Validate session ID
             if (ObjectUtils.isEmpty(yatriPulseUserRequest.getSessionId()))
                 throw new WishFoundationException(ErrorCode.UNABLE_TO_GET_SESSION_ID.getCode(),
@@ -164,8 +171,18 @@ public class YatriPulseUserLoginSignUpServiceImpl implements YatriPulseUserLogin
         }
     }
 
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
     /**
-     * Registers a new YatriPulseUser.
+     * .....................Registers a new YatriPulseUser/....................
      *
      * @param yatriPulseUserRequest The request object containing the user's details.
      * @return ResponseEntity with HTTP status code 201 (Created) if the user is successfully registered.
@@ -260,7 +277,29 @@ public class YatriPulseUserLoginSignUpServiceImpl implements YatriPulseUserLogin
         return new ResponseEntity<Void>(HttpStatus.CREATED);
     }
 
-    /**
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    /**...................Multiple YatriPulseUsers...................
+     * 
+     * 
      * This method registers multiple YatriPulseUsers from an Excel file.
      * It validates the data, checks for existing users, and handles exceptions.
      * It also sends SMS notifications to the registered users.
@@ -411,6 +450,21 @@ public class YatriPulseUserLoginSignUpServiceImpl implements YatriPulseUserLogin
         return new ResponseEntity<>(exceptionMap, HttpStatus.OK);
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     /**
      * Validates if a given username already exists in the database.
      * If the username exists, it throws a WishFoundationException with a conflict status code.
@@ -427,6 +481,17 @@ public class YatriPulseUserLoginSignUpServiceImpl implements YatriPulseUserLogin
         }
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Checks the number of users linked with a given phone number.
@@ -456,6 +521,15 @@ public class YatriPulseUserLoginSignUpServiceImpl implements YatriPulseUserLogin
         return phoneNumberLinkedResponse;
     }
 
+
+
+
+
+
+
+
+
+
     /**
      * Checks if a given username exists in the database.
      * If the username does not exist, it throws a WishFoundationException with a not found status code.
@@ -472,6 +546,17 @@ public class YatriPulseUserLoginSignUpServiceImpl implements YatriPulseUserLogin
         }
         return new ResponseEntity<Void>(HttpStatus.OK);
     }
+
+
+
+
+
+
+
+
+
+
+
 
     /**
      * Generates a unique username by randomly generating an alphanumeric string.
@@ -495,6 +580,17 @@ public class YatriPulseUserLoginSignUpServiceImpl implements YatriPulseUserLogin
         return userName;
     }
 
+
+
+
+
+
+
+
+
+
+    
+
     /**
      * Calculates the duration between two dates in days.
      *
@@ -502,7 +598,8 @@ public class YatriPulseUserLoginSignUpServiceImpl implements YatriPulseUserLogin
      * @param endDate   The end date.
      * @return The duration in days.
      */
-    private int calculateDuration(Date startDate, Date endDate) {
+    private int calculateDuration(Date startDate, Date endDate)
+    {
         long durationInMillis = endDate.getTime() - startDate.getTime();
 
         long seconds = durationInMillis / 1000;
